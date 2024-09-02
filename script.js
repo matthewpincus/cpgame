@@ -19,6 +19,7 @@ function createTrash() {
     const trash = document.createElement('div');
     trash.classList.add('trash');
     trash.style.left = Math.random() * (gameArea.offsetWidth - 30) + 'px';
+    trash.style.top = '0px';
     gameArea.appendChild(trash);
 
     const fallInterval = setInterval(() => {
@@ -37,7 +38,7 @@ function createTrash() {
             clearInterval(fallInterval);
             endGame();
         } else {
-            trash.style.top = (trashRect.top - gameArea.getBoundingClientRect().top + 2) + 'px';
+            trash.style.top = (parseFloat(trash.style.top) + 2) + 'px';
         }
     }, 20);
 }
