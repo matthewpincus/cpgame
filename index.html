@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Captain Planet's Eco-Challenge</title>
+    <title>Captain Planet Gacha Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="game-container">
-        <h1>Captain Planet's Eco-Challenge</h1>
-        <div id="game-area">
-            <div id="captain-planet"></div>
-            <div id="trash-container"></div>
+        <h1>Captain Planet Gacha Game</h1>
+        <div id="stats">
+            <p>Eco-Points: <span id="eco-points">100</span></p>
+            <p>Summons: <span id="summon-count">0</span></p>
         </div>
-        <div id="score">Score: <span id="score-value">0</span></div>
-        <button id="start-button">Start Game</button>
+        <div id="elements-container"></div>
+        <button id="summon-btn">Summon (10 Eco-Points)</button>
+        <button id="battle-btn">Battle</button>
+        <div id="message"></div>
     </div>
     <script src="script.js"></script>
 </body>
