@@ -19,13 +19,14 @@ function createTrash() {
     const trash = document.createElement('div');
     trash.classList.add('trash');
     trash.style.left = Math.random() * (gameArea.offsetWidth - 30) + 'px';
-    trash.style.top = '0px';
+    trash.style.top = '0px'; // Start from the top
     gameArea.appendChild(trash);
 
     const fallInterval = setInterval(() => {
         const trashRect = trash.getBoundingClientRect();
         const captainRect = captainPlanet.getBoundingClientRect();
 
+        // Check for collision
         if (trashRect.bottom >= captainRect.top &&
             trashRect.left < captainRect.right &&
             trashRect.right > captainRect.left) {
@@ -34,13 +35,15 @@ function createTrash() {
             gameArea.removeChild(trash);
             clearInterval(fallInterval);
         } else if (trashRect.top >= gameArea.offsetHeight) {
+            // If trash reaches the bottom, end the game
             gameArea.removeChild(trash);
             clearInterval(fallInterval);
             endGame();
         } else {
-            trash.style.top = (parseFloat(trash.style.top) + 2) + 'px';
+            // Move the trash down
+            trash.style.top = (parseFloat(trash.style.top) + 5) + 'px'; // Increase speed
         }
-    }, 20);
+    }, 100); // Check every 100ms
 }
 
 function startGame() {
@@ -50,7 +53,7 @@ function startGame() {
     gameArea.innerHTML = '<div id="captain-planet"></div>';
     captainPlanet = document.getElementById('captain-planet');
     gameArea.addEventListener('mousemove', moveCaptainPlanet);
-    gameInterval = setInterval(createTrash, 1000);
+    gameInterval = setInterval(createTrash, 1000); // Create trash every second
 }
 
 function endGame() {
