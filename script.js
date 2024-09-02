@@ -36,9 +36,8 @@ function createTrash() {
             clearInterval(fallInterval);
         } else if (trashRect.top >= gameArea.offsetHeight) {
             // If trash reaches the bottom, end the game
-            gameArea.removeChild(trash);
-            clearInterval(fallInterval);
             endGame();
+            clearInterval(fallInterval);
         } else {
             // Move the trash down
             trash.style.top = (parseFloat(trash.style.top) + 5) + 'px'; // Increase speed
@@ -50,7 +49,7 @@ function startGame() {
     score = 0;
     scoreDisplay.textContent = score;
     startButton.disabled = true;
-    gameArea.innerHTML = '<div id="captain-planet"></div>';
+    gameArea.innerHTML = '<div id="captain-planet"></div>'; // Reset game area
     captainPlanet = document.getElementById('captain-planet');
     gameArea.addEventListener('mousemove', moveCaptainPlanet);
     gameInterval = setInterval(createTrash, 1000); // Create trash every second
