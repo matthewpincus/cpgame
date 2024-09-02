@@ -1,6 +1,6 @@
 let score = 0;
 let gameInterval;
-const captainPlanet = document.getElementById('captain-planet');
+let captainPlanet;
 const gameArea = document.getElementById('game-area');
 const scoreDisplay = document.getElementById('score-value');
 const startButton = document.getElementById('start-button');
